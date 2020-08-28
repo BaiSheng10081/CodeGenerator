@@ -27,8 +27,11 @@ class SuggestWindow(tk.Frame):
 
         part1.pack(fill=tk.X)
 
-        self.searchSuggest = tk.Listbox(self)
+        self.suggestList = tk.StringVar(value=["開始輸入吧！"])
+
+        self.searchSuggest = tk.Listbox(self, listvariable=self.suggestList)
         self.searchSuggest.pack(fill=tk.BOTH, expand=True)
+        self.searchSuggest.bind('<Double-Button>', self.addCode)
 
         self.pack(fill="both", expand=True, padx = 4, pady = 4)
 
@@ -41,9 +44,14 @@ class SuggestWindow(tk.Frame):
             return
 
         sugList = suggest_list(values)
+        self.suggestList.set(sugList)
 
-        for item in sugList:
+        """for item in sugList:
             self.searchSuggest.insert(tk.END, item)
+        """
+
+    def addCode(self):
+        print("add code:")
 
 def suggest_list(search):
     print(search)
