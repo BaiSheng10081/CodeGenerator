@@ -1,0 +1,14 @@
+{
+  "初始化程式 開頭 (Arduino)":"arduino:setup_head",
+  "初始化程式 結尾(Arduino)":"arduino:setup_head",
+
+  "@arduino:setup_head":"void setup(){",
+  "@arduino:set_pin":"pinMode({{arduino:pin_num}}, {{arduino:pin_state}});",
+  "@arduino:func_setup_tail":"}",
+  "@arduino:loop_head":"void loop(){",
+  "@arduino:set_output":"!digitalWrite({{arduino:pin_num}}, {{arduino:pin_state}})",
+  "@arduino:func_loop_tail":"}",
+
+  "!lang:arduino:pin_num":"!腳位編號",
+  "!lang:arduino:pin_state":"!腳位狀態"
+}
